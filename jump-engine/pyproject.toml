@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-jump-engine"
+version = "0.1.1"
+description = "High-performance Merton Jump-Diffusion engine for tail-risk modeling."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/armouredbeast/jump-engine"

@@ -1,0 +1,12 @@
+streamlit
+pandas
+plotly
+numpy
+scipy
+torch
+quant-signal-engine
+quant-engine
+alpha-engine-quant
+quant-limit-engine
+quant-rate-engine
+quant-jump-engine
