@@ -140,4 +140,4 @@ with tab3:
     st.plotly_chart(fig_alpha, use_container_width=True)
 
 st.divider()
-st.markdown("Designed for **High-Performance Quantitative Research!")
+st.markdown("Designed for **High-Performance Quantitative Research!**")
