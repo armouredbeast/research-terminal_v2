@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-rate-engine"
+version = "0.1.1"
+authors = [
+    {name = 'Sai', email = 'cvksaijagadish@gmail.com'}
+]
+description = 'A high-performance, GPU-accelaerated fixed-income simulation framework.'
+readme= 'README.md'
+requires-python = '>=3.9'
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+]
+[project.urls]
+"Homepage" = "https://github.com/armouredbeast/rate-engine"
+"Bug Tracker" = "https://github.com/armouredbeast/rate-engine/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rate_engine*"]

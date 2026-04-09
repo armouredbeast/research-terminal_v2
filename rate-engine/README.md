@@ -1,0 +1,32 @@
+# Rate-Engine: High-Performance Fixed Income & Yield Framework
+
+### **The "So What?"**
+In multi-asset portfolios, the ability to rapidly stress-test interest rate sensitivity (Greeks) is often limited by the computational cost of path-dependent simulation. **Rate-Engine** solves this by leveraging a hardware-aware (MPS/CUDA) stochastic framework that handles **1,000,000+ paths in under 500ms**. This enables real-time yield curve calibration and risk-neutral pricing for complex fixed-income derivatives that were previously computationally prohibitive.
+
+### **Core Features**
+* **Vectorized Nucleus:** Built on PyTorch for native GPU acceleration on Apple Silicon (MPS).
+* **Mean-Reversion Solvers:** Optimized Vasicek and Cox-Ingersoll-Ross (CIR) implementations for short-rate modeling.
+* **Numerical Rigor:** Integrated Martingale consistency checks and $1/\sqrt{N}$ convergence validation to ensure unbiased pricing.
+* **Path-Integral Logic:** Vectorized Trapezoidal integration for accurate Zero-Coupon Bond (ZCB) and Discount Factor calculation.
+
+### **Mathematical Foundation**
+The framework solves the Ornstein-Uhlenbeck process for the short rate $r_t$:
+$$dr_t = a(b - r_t)dt + \sigma dW_t$$
+
+And computes the bond price $P(0, T)$ via the expectation of the stochastic integral:
+$$P(0, T) = \mathbb{E}\left[ \exp\left( -\int_0^T r_s ds \right) \right]$$
+
+### **Quick Start**
+```python
+from rate_engine.nucleus.sde import Vasicek
+from rate_engine.pricing.bonds import BondPricer
+from rate_engine.utils.device import get_device
+
+# Initialize Model & Accelerator
+device = get_device()
+model = Vasicek(a=0.5, b=0.05, sigma=0.02)
+pricer = BondPricer(model, device)
+
+# Price 1M paths for a 1-year Bond
+price, std_err = pricer.price_zcb(r0=0.03, T=1.0, steps=252, n_paths=1_000_000)
+print(f"Fair Value: {price:.6f} +/- {std_err:.6f}")
