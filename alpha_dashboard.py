@@ -3,6 +3,23 @@ import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
 import time
+import streamlit as st
+import streamlit.components.v1 as components
+
+# --- GOOGLE ANALYTICS SETUP ---
+# This tracking ID is specific to your ArmouredBeast property
+GA_TAG = """
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZMCR42CL4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', 'G-XZMCR42CL4');
+</script>
+"""
+
+# Injects the tag into the app. Height=0 makes it invisible to the user.
+components.html(GA_TAG, height=0)
 
 # --- 1. CORE ENGINE MAPPING ---
 try:
