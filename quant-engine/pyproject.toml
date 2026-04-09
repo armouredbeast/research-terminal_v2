@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name="quant-engine"
+version="0.1.1"
+authors = [{ name= "CVK SAI JAGADISH", email="cvksaijagadish@gmail.com"},]
+description = "High Peroformance stochastic simulation and signal processing engine."
+readme ="README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "torch>=2.0.0",
+    "pandas>=1.5.0",
+    "numpy>=1.23.0",
+]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nucleus*","signal_lab*","strategist*","connectivity*"]

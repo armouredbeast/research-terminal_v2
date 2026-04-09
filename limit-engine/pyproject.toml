@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-limit-engine"
+version = "0.1.1"
+description = "High-performance Limit Order Book (LOB) and Market Impact simulator."
+readme = "README.md"
+dependencies = ["numpy", "pandas"]
