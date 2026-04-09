@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
 import time
-import streamlit as st
 import streamlit.components.v1 as components
 
 # --- GOOGLE ANALYTICS SETUP ---
@@ -141,4 +140,4 @@ with tab3:
     st.plotly_chart(fig_alpha, use_container_width=True)
 
 st.divider()
-st.markdown("Designed for **High-Performance Quantitative Research** | Bengaluru ➔ London")
+st.markdown("Designed for **High-Performance Quantitative Research!")
